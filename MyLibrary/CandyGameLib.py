@@ -45,7 +45,7 @@ def game(first_player: Person, second_player: Person):
     print(f'{first_player.name} и {second_player.name} в игре.\n{pravila}')
     who_plays = random.randint(1, 2)
     print(f'Игра начинается, и первым ходит {first_player.name if who_plays == 1 else second_player.name}')
-    points = 50
+    points = 2021
     while points > 0:
         print(f'Текущее количество очков {points}')
         if who_plays == 1:
