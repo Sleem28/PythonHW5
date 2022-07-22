@@ -19,26 +19,27 @@ class Person:
             self.name = input('Введите ваше имя: ')
 
     def make_move(self, points: int) -> int:
-        move = 0
+
         if self.name == 'Bot':
             if self.stupid:
-                move = random.randint(1, 28)
+                movve = random.randint(1, 28)
             else:
-                move = points % 29
+                movve = points % 29
         else:
             isChanged = False
             while not isChanged:
-                move = input(f'{self.name}, ведите число от 1 до 28: ')
-                if not move.isdigit():
+                movve = input(f'{self.name}, ведите число от 1 до 28: ')
+                if not movve.isdigit():
                     print(f'{self.name}, вы ввели не число')
                     continue
                 else:
-                    move = int(move)
-                    print(move)
-                    if move < 1 or move > 28:
+                    movve = int(movve)
+                    print(movve)
+                    if movve < 1 or movve > 28:
                         print(f'{self.name} введенное число не в диапазоне 1 - 28. Введите его еще раз')
                     else:
                         isChanged = True
+        return movve
 
     def set_marker(self, marker: str):
         self.marker = marker
@@ -109,7 +110,7 @@ def game(first_player: Person, second_player: Person):
     print(f'{first_player.name} и {second_player.name} в игре.\n{pravila}')
     who_plays = random.randint(1, 2)
     print(f'Игра начинается, и первым ходит {first_player.name if who_plays == 1 else second_player.name}')
-    points = 100
+    points = 2021
     while points > 0:
         print(f'Текущее количество очков {points}')
         if who_plays == 1:
